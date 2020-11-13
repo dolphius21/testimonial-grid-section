@@ -1,0 +1,83 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: #edf2f8;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  grid-gap: 2rem;
+      grid-template-areas: "grid1 grid1 grid2 grid5" "grid3 grid4 grid4 grid5";
+}
+
+.testimonial {
+  padding: 2rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 5px 5px 20px -10px #cfcfcf;
+          box-shadow: 5px 5px 20px -10px #cfcfcf;
+}
+
+.grid-1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: grid1;
+  background-color: #7541c8;
+}
+
+.grid-2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: grid2;
+  background-color: #48556a;
+}
+
+.grid-3 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: grid3;
+  background-color: white;
+}
+
+.grid-4 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: grid4;
+  background-color: #19212e;
+}
+
+.grid-5 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  grid-area: grid5;
+  background-color: white;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+/*# sourceMappingURL=main.css.map */
