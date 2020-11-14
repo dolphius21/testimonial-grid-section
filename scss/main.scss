@@ -1,11 +1,20 @@
-$text-light: hsl(0, 0%, 81%);
-$text-lighter: hsl(210, 46%, 95%);
+@mixin media-lg {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 body {
@@ -14,56 +23,121 @@ body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: auto;
+  padding: 2rem 2rem 0;
+
+  @include media-md {
+    padding: 80px 2rem 2rem;
+  }
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 2rem;
-  grid-template-areas:
-    "grid1 grid1 grid2 grid5"
-    "grid3 grid4 grid4 grid5";
+  @include media-md {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    grid-template-areas:
+      "grid1 grid1 grid2"
+      "grid3 grid4 grid4"
+      "grid5 grid5 grid5";
+  }
+
+  @include media-lg {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    grid-template-areas:
+      "grid1 grid1 grid2 grid5"
+      "grid3 grid4 grid4 grid5";
+  }
 }
 
 .testimonial {
   padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 5px 5px 20px -10px hsl(0, 0%, 81%);
+  border-radius: 0.75rem;
+  box-shadow: 10px 10px 10px -10px hsl(0, 0%, 81%);
+  margin-bottom: 2rem;
+
+  @include media-md {
+    margin-bottom: 0;
+  }
+
+  &-user {
+    display: flex;
+    margin-bottom: 1.25rem;
+    align-items: center;
+
+    .user-avatar {
+      height: 40px;
+      width: 40px;
+      border: 3px solid rgba($color: #fff, $alpha: 0.3);
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+
+    .username {
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        opacity: 50%;
+      }
+    }
+  }
+
+  &-content {
+    .highlight {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .comment {
+      letter-spacing: 0.75px;
+      opacity: 70%;
+      line-height: 1.5;
+    }
+  }
 }
 
 .grid-1 {
   grid-area: grid1;
-  background-color: hsl(263, 55%, 52%);
+  background: #7541c8 url(../images/bg-pattern-quotation.svg) no-repeat top 20px right 80px;
+  color: #fff;
 }
 
 .grid-2 {
   grid-area: grid2;
-  background-color: hsl(217, 19%, 35%);
+  background-color: #48556a;
+  color: #fff;
 }
 
 .grid-3 {
   grid-area: grid3;
-  background-color: white;
+  background-color: #fff;
+  color: #48556a;
 }
 
 .grid-4 {
   grid-area: grid4;
-  background-color: hsl(219, 29%, 14%);
+  background-color: #19212e;
+  color: #fff;
 }
 
 .grid-5 {
   grid-area: grid5;
-  background-color: white;
+  background-color: #fff;
+  color: #48556a;
 }
 
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-bottom: 2rem;
 
   a {
+    font-size: 11px;
     color: hsl(228, 45%, 44%);
   }
 }
